@@ -1,0 +1,80 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+---
+
+<Layout>
+  <h1>Om os</h1>
+  <div class="width">
+    <img src="/img/other/portrait_01.webp" alt="" />
+    <div class="om_os_indhold1">
+      <p class="text"><b>Carla og Bjørk</b> <br /> Havet, menneskekroppe, naturen, nuancer, konkylier, organiske former og øjeblikke. Det er sådan, vi beskriver vores kunst allerbedst. Vi hedder Carla og Bjørk Nørremark og er en tvillinge-kunstnerduo fra København. Siden vi var små og tilbragte utallige somre ved stranden med at samle forstenede søpindsvin og smukke skaller, har vi draget stor inspiration fra havet og dens finurlige former. Vi startede Some Other Waves for at udleve en drøm om at leve af kunsten, passionen og samværet mellem os. I 2019 malede vi på stofnet for at afprøve virksomhedslivet, men skiftede allerede i 2022 efter en pause til den evighedskunst, som vi tilbyder nu.</p>
+      <img class="picture" src="/img/other/væg.webp" alt="" />
+    </div>
+    <div class="om_os_indhold2">
+      <p><b>Bæredygtighed hos os</b> <br />Begrebet evighedskunst kommer fra vores ønske om at skabe kunst, som er bæredygtig og holder i længden. Vi maler på ting, som allerede eksisterer i livet, og minimerer derved mængden af ressourcer, der skal til for at skabe vores værker. I vores samarbejder med brands og virksomheder udvælger vi derfor også dem, som går ind for bæredygtighed, for at kunne have vores værdier med i alt, hvad vi skaber. Derudover elsker vi at forskønne områder, hvor mennesker samles, passerer og går til hverdag, og nyder derfor også at præge institutioner, kontorer og offentlige steder med vores motiver.</p>
+      <img src="/img/wall/wall_13.webp" alt="" />
+    </div>
+    <div class="center">
+      <Button link="/galleri">Se galleri</Button>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  h1 {
+    text-align: center;
+    margin: 30px;
+    margin-top: 100px;
+  }
+  img {
+    display: block;
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 25px;
+  }
+
+  p {
+    margin-bottom: 25px;
+    margin-top: 0;
+  }
+  @media (min-width: 800px) {
+    h1 {
+      margin-top: 150px;
+    }
+    .width {
+      width: 80%;
+      margin: auto;
+    }
+    .om_os_indhold1 {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 60px;
+    }
+    .text {
+      grid-column: 2 / 3;
+    }
+    .picture {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+    .om_os_indhold2 {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 60px;
+    }
+    .om_os_indhold1 img,
+    .om_os_indhold2 img {
+      width: 100%;
+    }
+    p {
+      font-weight: 350;
+      line-height: 150%;
+      font-size: 20px;
+    }
+
+    img {
+      margin-bottom: 50px;
+    }
+  }
+</style>

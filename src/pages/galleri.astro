@@ -1,0 +1,127 @@
+---
+import Layout from "../layouts/Layout.astro";
+import GalleryCard from "../components/GalleryCard.astro";
+import Button from "../components/Button.astro";
+
+const url = "https://hvqqqwpdmwotjgxebrxv.supabase.co/rest/v1/someotherwaves";
+const apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh2cXFxd3BkbXdvdGpneGVicnh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjU2MDY4NzQsImV4cCI6MjA0MTE4Mjg3NH0.K9dKO1K4NQBdSCsqBZHh1Yc4L8VNHDBNgRCzsI0fSSQ";
+const data = await fetch(url, {
+  headers: {
+    apikey: apiKey,
+  },
+}).then((res) => res.json());
+---
+
+<Layout>
+  <section>
+    <h1>Galleri</h1>
+    <div id="btn_container">
+      <button class="btn active" data-filter="all" aria-label="Viser alle kategorier">Alle</button>
+      <button class="btn" data-filter="wall" aria-label="Viser kategorien væg">Væg</button>
+      <button class="btn" data-filter="ceiling" aria-label="Viser kategorien loft">Loft</button>
+      <button class="btn" data-filter="collabs" aria-label="Viser kategorien samarbejde">Samarbejde</button>
+      <button class="btn" data-filter="products" aria-label="Viser kategorien produkter">Produkter</button>
+    </div>
+
+    <div class="galleri">
+      {data.map((painting) => <GalleryCard data={painting} />)}
+    </div>
+    <div class="cta">
+      <h2>Drømmer du om et<br />evighedskunstværk?</h2>
+      <Button link="/bestillingsguide">Se guiden</Button>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Get all the buttons and pics
+  const images = document.querySelectorAll(".column");
+  const buttons = document.querySelectorAll(".btn");
+  // Adds event listener to buttons then refers it to filter function
+  buttons.forEach((column) => column.addEventListener("click", filtrer));
+
+  function filtrer() {
+    document.querySelector(".active").classList.remove("active");
+    this.classList.add("active");
+
+    images.forEach((elm) => {
+      if (elm.dataset.filter == this.dataset.filter || this.dataset.filter == "all") {
+        elm.classList.remove("hidden");
+      } else {
+        elm.classList.add("hidden");
+      }
+    });
+  }
+</script>
+
+<style>
+  main {
+    width: 100% !important;
+  }
+  h1 {
+    /* margin: 30px; */
+    margin-top: 100px;
+  }
+  .hidden {
+    display: none;
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #btn_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin: auto;
+    padding: 0 25px;
+  }
+  .btn {
+    background-color: var(--neutral);
+    border: 2px solid var(--red);
+    border-radius: 50px;
+    color: var(--red);
+    font-weight: 900;
+    font-size: 12px;
+    padding: 10px 25px;
+    cursor: pointer;
+    transition-duration: 0.25s;
+  }
+  .active,
+  .btn:hover {
+    background-color: var(--red);
+    color: var(--neutral);
+  }
+  .galleri {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1084px;
+    margin: 50px 0;
+  }
+  h2 {
+    text-align: center;
+  }
+  .cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+  }
+  /* ----- Desktop ----- */
+  @media screen and (min-width: 800px) {
+    .btn {
+      font-weight: bold;
+      font-size: 14px;
+      padding: 10px 45px;
+      border: 2.5px solid var(--red);
+    }
+
+    h1 {
+      margin-top: 150px;
+    }
+  }
+</style>

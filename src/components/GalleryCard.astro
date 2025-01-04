@@ -1,0 +1,35 @@
+---
+const { data } = Astro.props;
+---
+
+<article data-filter={data.category} class={`${data.class} ${data.category} test`}>
+  <img src={data.image} alt="" />
+</article>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .hidden {
+    display: none;
+  }
+  img {
+    width: 125px;
+    display: block;
+    border-radius: 15px;
+    object-fit: cover;
+    height: 200px;
+  }
+
+  /* ----- Desktop ----- */
+  @media screen and (min-width: 800px) {
+    img {
+      width: 344px;
+      display: block;
+      border-radius: 15px;
+      object-fit: cover;
+      height: 450px;
+    }
+  }
+</style>

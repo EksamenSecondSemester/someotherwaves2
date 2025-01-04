@@ -1,11 +1,335 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import Review from "../components/Review.astro";
+import Banner from "../components/Banner.astro";
+import Flag from "../components/Flag.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <video muted autoplay>
+    <source src="img/video/Alpha_hero-hevc-safari.mp4" type="video/mp4; codecs=hvc1" />
+    <source src="img/video/Alpha_hero-vp9-chrome.webm" type="video/webm" />
+  </video>
+
+  <h1 class="display">Some Other Waves</h1>
+  <div>
+    <p class="catchphrase"><b>- evighedskunst i dit hjem -</b></p>
+  </div>
+
+  <div class="grid_2">
+    <div class="text-content">
+      <h1 class="h11">Om os</h1>
+      <p>Hej! Vi hedder Carla og Bjørk, og er et tvillingepar som i 2022 startede med at skabe væg- og loftmalerier under navnet Some Other Waves. Vi laver evighedskunst - en måde at kombinere vores univers med en bæredygtighed der varer hele livet. Havet og dens uendelige mængde af former og farver er vores inspiration, hvilket præger alle vores motiver. <br /> Vi er klar på at male din stue, din gang, din butiksdisk og alt der ligger imellem!</p>
+      <div class="center1">
+        <Button link="/omos" aria-label="Gå til Om os-siden">Læs mere</Button>
+      </div>
+    </div>
+    <div>
+      <img class="forsidebillede" src="img/other/portrait_03.webp" alt="CarlaxBjørk" />
+    </div>
+  </div>
+
+  <h1>Galleri</h1>
+
+  <div class="gallerigrid">
+    <a href="/galleri" class="image-container">
+      <img src="img/wall/wall_07.webp" alt="Kategori - Vægmalerier" />
+      <div class="text-overlay">Vægmalerier</div>
+    </a>
+
+    <a href="/galleri" class="image-container">
+      <img src="img/ceiling/ceiling_01.webp" alt="Kategori - Loftmalerier" />
+      <div class="text-overlay">Loftmalerier</div>
+    </a>
+
+    <img class="grafik" src="svg/gallerigrafik2.svg" alt="Grafik" style="width: 50%; height: auto; margin: auto;" />
+
+    <a href="/galleri" class="image-container">
+      <img src="img/collabs/elefant.webp" alt="Kategori - Samarbejder" />
+      <div class="text-overlay">Samarbejder</div>
+    </a>
+
+    <img class="grafik" src="svg/gallerigrafik1.svg" alt="Grafik" style="width: 60%; height: auto; margin: auto;" />
+
+    <a href="/galleri" class="image-container">
+      <img src="img/products/klint.webp" alt="Kategori - Produkter" />
+      <div class="text-overlay">Produkter</div>
+    </a>
+  </div>
+
+  <div class="dromme">
+    <img class="grafikstjerne" src="svg/starfish.svg" alt="Grafik - Starfish" />
+    <h1 class="drommetekst">Drømmer du om et evighedskunstværk?</h1>
+    <p class="p2">Vi stræber efter at skabe kunst, som man kan nyde i lang tid og som kan blive en del af ens hverdag. I stedet for at male på lærreder valgte vi derfor væggen og selve hjemmet som vores udtryksmiddel for kunsten. At være omgivet af kunst hver dag er noget af det skønneste for os, og det vil vi gerne give videre. Hvis du har ledt efter en måde at gøre dit hjem mere personligt, farverigt og inspirerende på, kan vores væg- og loftmalerier være den perfekte løsning for dig!</p>
+    <div class="center">
+      <Button link="/bestillingsguide" aria-label="Gå til bestillingsguiden">Se guiden</Button>
+    </div>
+  </div>
+
+  <Review />
+
+  <h1 class="brands">Brands vi har arbejdet med</h1>
+
+  <Banner />
+
+  <Flag />
 </Layout>
+
+<style>
+  .display {
+    margin: 30px;
+  }
+  video {
+    position: relative;
+    left: 0;
+    scale: 1.3;
+    width: 100%;
+    height: auto; /* Bevarer proportionerne */
+    overflow: hidden;
+    z-index: -1;
+    margin-top: 130px;
+  }
+
+  .center1 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+
+  h1 {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 50px;
+  }
+
+  .center {
+    margin-top: 150px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+
+  p {
+    text-align: left;
+    max-width: 261px;
+    word-wrap: break-word;
+    margin: 0 auto;
+  }
+
+  .p2 {
+    max-width: 350px;
+    margin-bottom: 30px;
+  }
+  .catchphrase {
+    margin-top: -20px;
+    text-align: center;
+    font-size: 18px;
+    font-style: italic;
+  }
+
+  .forsidebillede {
+    display: block;
+    width: 50%;
+    border-radius: 27px 27px 127px 127px;
+    margin: 0 auto;
+  }
+
+  .gallerigrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+  }
+
+  .image-container {
+    position: relative; /* Så vi kan placere teksten ovenpå billedet */
+    overflow: hidden;
+    border-radius: 15px;
+  }
+
+  .gallerigrid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition:
+      transform 0.3s ease,
+      filter 0.3s ease;
+    filter: brightness(70%);
+  }
+
+  .gallerigrid img:hover {
+    filter: brightness(100%);
+    transform: scale(1.05);
+  }
+
+  .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    pointer-events: none; /* Forhindrer teksten i at blokere klik */
+    font-family: "Source Sans 3", sans-serif;
+  }
+
+  .drommetekst {
+    margin: 0;
+    margin-bottom: 50px;
+  }
+
+  .grafik {
+    display: none;
+  }
+
+  .grafikstjerne {
+    display: none;
+  }
+  img {
+    border-radius: 15px;
+  }
+
+  /* Desktop */
+
+  @media (min-width: 800px) {
+    video {
+      top: 70px;
+    }
+
+    .display {
+      margin-top: 120px;
+    }
+    .center1 {
+      float: left;
+    }
+    .grid_2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: center;
+      margin: 0 auto;
+      width: 60%;
+      margin-bottom: 200px;
+      margin-top: 200px;
+    }
+
+    .grid_2 h1 {
+      text-align: start !important;
+      margin: 0;
+    }
+
+    .omostekst {
+      text-align: start !important;
+      margin-right: 20px;
+    }
+
+    .forsidebillede {
+      display: block;
+      width: 105%;
+      margin-left: 20px;
+    }
+
+    .text-content h1 {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .text-content p {
+      margin-bottom: 20px;
+      max-width: 500px;
+    }
+
+    .gallerigrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 300px); /* Reducér højden på rækkerne */
+      gap: 15px;
+      margin: 0 auto;
+      margin-bottom: 200px;
+    }
+
+    .image-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+    }
+
+    .gallerigrid img {
+      width: 100%;
+      height: 100%; /* Sørg for, at billedet fylder hele cellen */
+      object-fit: cover;
+      transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+      filter: brightness(70%);
+    }
+
+    .gallerigrid img:hover {
+      filter: brightness(100%);
+      transform: scale(1.05);
+    }
+
+    .text-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 36px;
+      font-weight: bold;
+      pointer-events: none; /* Forhindrer teksten i at blokere klik */
+    }
+
+    .drommetekst {
+      text-align: left;
+      margin-left: auto;
+    }
+    .dromme {
+      width: auto;
+      max-width: 75%;
+      left: 0;
+      right: 0;
+      margin-left: 225px; /* Prøvede at gøre teksten mere som på prototypen */
+    }
+
+    .grafik {
+      display: block;
+      filter: brightness(100%) !important;
+    }
+
+    .gallerigrid:hover .grafik {
+      transform: none;
+    }
+
+    .grafikstjerne {
+      display: block;
+      position: absolute;
+      width: 20%;
+      z-index: -1;
+      left: 15%;
+      opacity: 70%;
+    }
+
+    .p2 {
+      max-width: 100%;
+    }
+
+    .brands {
+      margin-top: 10px;
+    }
+
+    .catchphrase {
+      text-align: center;
+      font-size: 35px;
+      max-width: 100%;
+      font-style: italic;
+      margin-top: -50px;
+      margin-bottom: 30px;
+    }
+  }
+</style>

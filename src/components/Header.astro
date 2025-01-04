@@ -1,0 +1,185 @@
+<header>
+  <div class="logo">
+    <a href="/">
+      <img class="desktop_logo" src="/svg/sow_logo.svg" alt="Logo" />
+      <img class="mobile_logo" src="/svg/sow_logo_mobile.svg" alt="Logo" />
+    </a>
+  </div>
+  <nav>
+    <ul class="menu">
+      <li class="galleri"><a href="/galleri">Galleri</a></li>
+      <li class="omos"><a href="/omos">Om os</a></li>
+      <li class="bestill"><a href="/bestillingsguide">Bestillingsguide</a></li>
+      <li><a href="https://www.instagram.com/someotherwaves/?hl=da" target="_blank" target="_blank"><img src="/svg/insta.svg" alt="Instagram" /></a></li>
+    </ul>
+    <div class="burger">
+      <img class="line" src="/svg/burgerline.svg" alt="Burgermenu" />
+      <img class="line" src="/svg/burgerline.svg" alt="Burgermenu" />
+      <img class="line" src="/svg/burgerline.svg" alt="Burgermenu" />
+    </div>
+  </nav>
+</header>
+
+<script src="/src/scripts/menu.js"></script>
+<script src="/src/scripts/dropshadow.js"></script>
+<script>
+  const pathName = window.location.pathname;
+  const pageName = pathName;
+
+  if (pageName === "/galleri/") {
+    document.querySelector(".galleri").classList.add("activeLink");
+  }
+  if (pageName === "/omos/") {
+    document.querySelector(".omos").classList.add("activeLink");
+  }
+  if (pageName === "/bestillingsguide/") {
+    document.querySelector(".bestill").classList.add("activeLink");
+  }
+</script>
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px; /* Ændret fra 5 til 15 */
+    background-color: var(--neutral);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    transition: box-shadow 0.3s ease;
+  }
+  header.scrolled {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo img {
+    width: 100px;
+    height: 97px;
+    border-radius: 0%;
+  }
+
+  img {
+    border-radius: 0%;
+  }
+
+  .mobile_logo {
+    display: none;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 10px;
+    padding: 0;
+  }
+
+  .menu li {
+    margin-right: 20px;
+  }
+
+  .menu li:last-child {
+    margin-right: 0;
+  }
+
+  .menu a {
+    display: block;
+    padding: 10px;
+    color: var(--purple) !important;
+    text-decoration: none;
+    transition: color 0.3s;
+    text-align: end;
+  }
+
+  .menu a:hover {
+    opacity: 50% !important;
+    color: #f00;
+  }
+
+  .burger {
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .burger .line {
+    width: 100%;
+    transition: 0.2s linear;
+  }
+  .burger {
+    display: none;
+  }
+  .activeLink a {
+    color: var(--red) !important;
+    /* text-decoration: underline !important; */
+  }
+  /* ----- MOBILE ----- */
+  @media screen and (max-width: 800px) {
+    .desktop_logo {
+      display: none;
+    }
+    .mobile_logo {
+      display: block;
+    }
+    .logo img {
+      width: 50px;
+      height: 46px;
+    }
+    header {
+      background-color: var(--purple);
+    }
+    .menu {
+      display: none;
+    }
+    .menu img {
+      display: none;
+    }
+    .burger {
+      display: block;
+      color: #ffffff;
+      margin-right: 20px;
+    }
+    .burger.active .line:nth-child(1) {
+      transform: rotate(50deg) translate(6px, 6px);
+      transition: 0.3s linear;
+    }
+
+    .burger.active .line:nth-child(2) {
+      opacity: 0;
+      transition: 0.15s linear;
+    }
+
+    .burger.active .line:nth-child(3) {
+      transform: rotate(-50deg) translate(6px, -6px);
+      transition: 0.3s linear;
+    }
+
+    nav.active .menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--purple);
+      position: absolute;
+      top: 65px; /* Ændret fra 80 til 65 */
+      left: 100px;
+      width: 100%;
+      height: 180px;
+      z-index: 10;
+    }
+
+    nav.active .menu li {
+      margin: 10px 20px;
+    }
+
+    nav.active .menu a {
+      color: #ffffff !important;
+    }
+  }
+</style>

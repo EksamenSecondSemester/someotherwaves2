@@ -1,0 +1,123 @@
+<div class="slider-container">
+  <div class="slider">
+    <div class="slide-track">
+      <div class="slide">
+        <img src="img/banner/cafeoscar.svg" height="60" width="auto" alt="Cafe Oscar logo" />
+      </div>
+      <div class="slide">
+        <img src="img/banner/copenhagenoptic.svg" height="60" width="auto" alt="Copenhagen Optic logo" />
+      </div>
+      <div class="slide">
+        <img src="img/banner/dyrlaegegaaarden.svg" height="60" width="auto" alt="Dyrlægegården logo" />
+      </div>
+      <div class="slide">
+        <img src="img/banner/gentofte.svg" height="60" width="200" alt="Gentofte logo" />
+      </div>
+      <div class="slide">
+        <img src="img/banner/gentofteby.svg" height="60" width="auto" alt="Gentofte By logo" />
+      </div>
+      <div class="slide">
+        <img src="img/banner/humanhouse.svg" height="60" width="auto" alt="Human House logo" />
+      </div>
+      <div class="slide">
+        <img src="img/banner/klint.svg" height="60" width="auto" alt="Klint logo" />
+      </div>
+      <div class="slide">
+        <img src="img/banner/louievenner.svg" height="60" width="auto" alt="Louie & Venner logo" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Banner */
+
+  img {
+    margin-top: 40px;
+    width: auto;
+    border-radius: 0%;
+  }
+
+  .slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    margin-bottom: 150px;
+  }
+
+  /* Animation */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-700%));
+    }
+  }
+
+  /* Styling */
+  .slider {
+    background: var(--neutral);
+    height: 100px;
+    overflow: hidden; /* Sørger for at banneret ikke kan bevæge sig udover skærmbredden */
+    position: relative;
+  }
+
+  .slider::before,
+  .slider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    z-index: 2;
+  }
+
+  .slider::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(255, 249, 239, 1) 0%, rgba(255, 249, 239, 0) 100%);
+  }
+
+  .slider::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(255, 249, 239, 1) 0%, rgba(255, 249, 239, 0) 100%);
+  }
+
+  .slide-track {
+    display: flex;
+    animation: scroll 40s linear infinite; /* Hurtigere bevægelse */
+    gap: 20px;
+  }
+
+  .slide {
+    width: auto;
+  }
+
+  @media (min-width: 800px) {
+    img {
+      margin-top: 40px;
+      width: auto;
+      border-radius: 0%;
+    }
+
+    .slide-track {
+      animation: scroll 40s linear infinite; /* Hurtigere bevægelse */
+      gap: 70px;
+    }
+
+    .slider-container {
+      margin-bottom: 350px;
+    }
+
+    /* Animation */
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-100%));
+      }
+    }
+  }
+</style>

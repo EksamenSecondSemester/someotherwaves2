@@ -1,0 +1,107 @@
+:root {
+    --purple: #484187;
+    /* --red: #f3747b; */
+    --red: #F16068;
+    --yellow: #ffd5a4;
+    --neutral: #fff9ef;
+}
+
+@font-face {
+    font-family: "RastelyDa";
+    /* Name your font family */
+    src: url("/fonts/RastelyFontDaV99-Regular.ttf");
+    /* Locate the .ttf file within your directory*/
+}
+
+@font-face {
+    font-family: "Genida";
+    /* Name your font family */
+    src: url("/fonts/GenidaDemoRegular-ZpJGq.otf");
+    /* Locate the .ttf file within your directory*/
+}
+
+body {
+    background-color: var(--neutral);
+}
+
+.display {
+    font-family: "Genida";
+    font-size: 45px;
+    color: var(--purple);
+}
+
+h1 {
+    font-family: "RastelyDa";
+    font-size: 36px;
+    color: var(--purple);
+    margin: 30px;
+    margin-top: 75px;
+}
+
+h2 {
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--purple);
+}
+
+p {
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 12px;
+    color: var(--purple);
+    margin-bottom: 25px;
+    font-weight: 350;
+    margin-top: 0px;
+}
+
+a {
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: bold;
+    text-decoration: none !important;
+    color: white;
+}
+
+a:hover {
+    color: var(--red);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    display: block;
+    width: 100%;
+    border-radius: 15px;
+}
+
+main {
+    width: 75%;
+    margin: auto;
+}
+
+/* ----- Desktop Verions ----- */
+@media (min-width: 800px) {
+    .display {
+        font-size: 115px;
+    }
+
+    h1 {
+        font-size: 80px;
+        font-weight: 100;
+        margin-top: 150px;
+    }
+
+    h2 {
+        font-size: 48px;
+    }
+
+    p {
+        font-size: 22px;
+    }
+
+    a {
+        font-size: 22px;
+    }
+}

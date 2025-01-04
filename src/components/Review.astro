@@ -1,0 +1,202 @@
+<h1>Hør fra vores kunder</h1>
+<div class="banner">
+  <div class="div-container">
+    <div class="div_1-1">
+      <img src="/img/wall/wall_08.webp" alt="review billede" />
+      <p><i>"Hver gang jeg træder ind i mit køkken og ser de flotte mønstre, bliver jeg glad på ny!"</i></p>
+    </div>
+    <div class="div_1-1">
+      <img src="/img/wall/wall_09.webp" alt="review billede" />
+      <p><i> "Jeg elsker at vise min væg frem, og man kan ikke komme på besøg hos mig uden at få den vist."</i></p>
+    </div>
+    <div class="div_1-1">
+      <img src="/img/wall/wall_10.webp" alt="review billede" />
+      <p><i>"Kæmpe anbefaling herfra! Super nem process med at få de skønne piger ud i vores sommerhus og få frisket de gamle vægge lidt op."</i></p>
+    </div>
+  </div>
+
+  <div class="arrow">
+    <span id="leftArrow" class="material-symbols-outlined s180grader"> chevron_right </span>
+    <span id="rightArrow" class="material-symbols-outlined"> chevron_right </span>
+  </div>
+</div>
+<div class="arrowPC">
+  <span id="leftArrowPC" class="material-symbols-outlined s180grader"> chevron_right </span>
+  <span id="rightArrowPC" class="material-symbols-outlined"> chevron_right </span>
+</div>
+
+<style>
+  h1 {
+    text-align: center;
+    font-weight: 100;
+  }
+
+  .banner {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Skjuler indhold uden for containeren */
+  }
+
+  .div-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Gør animationen glidende */
+    width: 300%; /* Tre elementer à 100% bredde */
+  }
+
+  .div_1-1 {
+    flex: -1 0 40%; /* Sørger for, at hver sektion fylder hele bredden */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .div_1-1 img {
+    width: 60%;
+    border-radius: 10px;
+  }
+
+  .div_1-1 p {
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .arrow {
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    transform: translateY(-50%);
+  }
+
+  .arrow span {
+    cursor: pointer;
+    font-size: 40px; /* Sikrer, at ikonerne er tilpas store */
+    color: #f3747b; /* Ændrer farven på pilene */
+    transition: transform 0.3s ease;
+  }
+  .arrowPC span {
+    cursor: pointer;
+    font-size: 40px; /* Sikrer, at ikonerne er tilpas store */
+    color: #f3747b; /* Ændrer farven på pilene */
+    transition: transform 0.3s ease;
+  }
+
+  .arrow span.s180grader {
+    transform: rotate(180deg); /* Sørger for, at venstre pil altid peger til venstre */
+  }
+  .arrowPC span.s180grader {
+    transform: rotate(180deg); /* Sørger for, at venstre pil altid peger til venstre */
+  }
+
+  .arrowPC span:hover {
+    transform: scale(1.5); /* Tilføjer skalering */
+  }
+
+  .arrowPC span.s180grader:hover {
+    transform: rotate(180deg) scale(1.5); /* Bevarer rotationen og tilføjer skalering */
+  }
+  @media (max-width: 800px) {
+    .arrowPC {
+      display: none;
+    }
+  }
+
+  @media (min-width: 800px) {
+    .arrowPC {
+      position: absolute;
+      width: 76%;
+      overflow: visible;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-370px);
+      z-index: 3;
+    }
+
+    .arrowPC span {
+      cursor: pointer;
+      font-size: 40px; /* Sikrer, at ikonerne er tilpas store */
+      color: #f3747b; /* Ændrer farven på pilene */
+      transition: transform 0.3s ease;
+    }
+    .arrow span:hover {
+      transform: scale(1.5);
+    }
+
+    .banner {
+      max-width: 1000px;
+
+      margin: 0 auto;
+      margin-bottom: 150px;
+    }
+
+    .div_1-1 {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .div_1-1 img {
+      display: block;
+      width: 100%;
+    }
+
+    .div_1-1 p {
+      font-size: 25px;
+      padding-left: 5%;
+    }
+
+    .s180grader {
+      transform: rotateY(180deg);
+    }
+    .arrow {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Elementer
+  const divContainer = document.querySelector(".div-container");
+  const leftArrow = document.getElementById("leftArrow");
+  const rightArrow = document.getElementById("rightArrow");
+  const leftArrowPC = document.getElementById("leftArrowPC");
+  const rightArrowPC = document.getElementById("rightArrowPC");
+  const divs = document.querySelectorAll(".div_1-1");
+
+  // Variabler
+  let currentIndex = 0; // Start ved det første element
+  const totalDivs = divs.length;
+
+  // Funktion til at opdatere bannerposition
+  function updateBanner() {
+    const offset = -currentIndex * 33; // Beregner position
+    divContainer.style.transform = `translateX(${offset}%)`;
+  }
+
+  // Klik-handlinger for pile
+  leftArrow.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + totalDivs) % totalDivs; // Gå til forrige
+    updateBanner();
+  });
+  leftArrowPC.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + totalDivs) % totalDivs; // Gå til forrige
+    updateBanner();
+  });
+
+  rightArrow.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % totalDivs; // Gå til næste
+    updateBanner();
+  });
+  rightArrowPC.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % totalDivs; // Gå til næste
+    updateBanner();
+  });
+
+  // Initialisering: Sørger for, at det første element vises korrekt
+  updateBanner();
+</script>
