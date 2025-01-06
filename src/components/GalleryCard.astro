@@ -3,8 +3,31 @@ const { data } = Astro.props;
 ---
 
 <article data-filter={data.category} class={`${data.class} ${data.category} test`}>
-  <img src={data.image} alt="" />
+  <img id={data.id} src={data.image} alt="" />
 </article>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('1');
+var modalImg = document.getElementById("img01");
+img.onclick = function(){
+  console.log("click");  
+  modal.style.display = "block";
+    modalImg.src = this.src;
+}
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+modal.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
 
 <style>
   * {
@@ -20,6 +43,11 @@ const { data } = Astro.props;
     border-radius: 15px;
     object-fit: cover;
     height: 200px;
+    opacity: 1;
+    transition-duration: .5s;
+  }
+  img:hover {
+    opacity: .7;
   }
 
   /* ----- Desktop ----- */
