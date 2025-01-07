@@ -1,4 +1,4 @@
-const burger = document.querySelector(".burger");
+const burger = document.querySelector(".burger"); /* Stregerne */ 
 const nav = document.querySelector("nav");
 const menu = document.querySelector(".menu");
 const links = document.querySelectorAll(".menu li a");
