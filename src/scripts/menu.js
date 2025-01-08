@@ -1,5 +1,5 @@
 const burger = document.querySelector(".burger"); /* Stregerne */ 
-const nav = document.querySelector("nav");
+const nav = document.querySelector("nav"); /* Hele navbaren */
 const menu = document.querySelector(".menu"); /* Dropdown */
 const links = document.querySelectorAll(".menu li a"); /* Links i dropdown */
 
